@@ -5,9 +5,3 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-
-  # Maintain GitHub Actions Dependancies (If you use workflows)
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "weekly"
