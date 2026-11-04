@@ -1,0 +1,13 @@
+version: 2
+updates: 
+  # Maintian dependencys for npm/package.json
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+
+  # Maintain GitHub Actions Dependancies (If you use workflows)
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
