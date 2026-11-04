@@ -1,0 +1,93 @@
+/* Core Setup */
+:root {
+  --win-bg: #c0c0c0;
+  --win-white: #ffffff;
+  --win-dark-grey: #808080;
+  --win-black: #000000;
+  --win-desktop: #008080;
+  --win-blue: #000080;
+}
+
+body {
+  background-color: var(--win-desktop);
+  font-family: "MS Sans Serif", "Courier New", Tahoma, sans-serif;
+  font-size: 14px;
+  color: var(--win-black);
+  margin: 20px;
+}
+
+/* 3D Border Effects */
+.edge-raised {
+  box-shadow: inset 1px 1px 0px var(--win-white),
+              inset -1px -1px 0px var(--win-dark-grey),
+              1px 1px 0px var(--win-black);
+}
+
+.edge-sunken {
+  box-shadow: inset 1px 1px 0px var(--win-dark-grey),
+              inset -1px -1px 0px var(--win-black),
+              1px 1px 0px var(--win-white);
+}
+
+/* Window Component */
+.win-window {
+  background-color: var(--win-bg);
+  padding: 3px;
+  width: 400px;
+  box-shadow: inset 1px 1px 0px var(--win-white),
+              inset -1px -1px 0px var(--win-dark-grey),
+              1px 1px 0px var(--win-black);
+}
+
+.win-titlebar {
+  background: var(--win-blue);
+  color: var(--win-white);
+  padding: 3px 4px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.win-titlebar-controls button {
+  width: 16px;
+  height: 14px;
+  font-size: 9px;
+  font-weight: bold;
+  padding: 0;
+  vertical-align: middle;
+}
+
+.win-content {
+  padding: 10px;
+}
+
+/* Classic Button */
+.win-btn {
+  background-color: var(--win-bg);
+  border: none;
+  font-family: inherit;
+  padding: 4px 12px;
+  box-shadow: inset 1px 1px 0px var(--win-white),
+              inset -1px -1px 0px var(--win-dark-grey),
+              1px 1px 0px var(--win-black);
+}
+
+.win-btn:active {
+  padding: 5px 11px 3px 13px; /* Simulates pixel shift when clicked */
+  box-shadow: inset 1px 1px 0px var(--win-black),
+              inset -1px -1px 0px var(--win-dark-grey),
+              1px 1px 0px var(--win-white);
+}
+
+/* Text Input Field */
+.win-input {
+  background-color: var(--win-white);
+  border: none;
+  padding: 4px;
+  font-family: inherit;
+  box-shadow: inset 1px 1px 0px var(--win-dark-grey),
+              inset -1px -1px 0px var(--win-black),
+              1px 1px 0px var(--win-white);
+  outline: none;
+}
