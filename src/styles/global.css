@@ -204,3 +204,42 @@ body {
   padding: 0;
   color: #333333;
 }
+
+/* About Me / MS-DOS terminal window */
+.terminal-body {
+  background-color: #000000;
+  color: #c0c0c0;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  line-height: 1.4;
+  padding: 10px;
+}
+
+.terminal-body p {
+  margin: 0;
+}
+
+.term-line {
+  margin-top: 10px !important;
+}
+
+.term-line:first-child {
+  margin-top: 0 !important;
+}
+
+.term-prompt {
+  color: #c0c0c0;
+  margin-right: 6px;
+}
+
+.term-out {
+  color: #ffffff;
+}
+
+.term-cursor {
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}

@@ -5,6 +5,7 @@ import Window from '../components/Window.astro';
 import InfoPanel from '../components/InfoPanel.astro';
 import { experience } from '../data/experience';
 import { education } from '../data/education';
+import AboutMe from '../components/AboutMe.astro'
 
 const GITHUB_USERNAME = 'McMillanFamily';
 
@@ -61,56 +62,56 @@ try {
       <aside class="sidebar">
         <InfoPanel title="Experience.exe" id="experience-window" entries={experience} />
       </aside>
-
       <section class="main-col">
-        <Window title="Active_Projects.exe" width="100%" id="projects-window">
-          <div class="portfolio-container">
-            <p class="status-text">
-              <strong>Status:</strong> Scanning repositories for commits made in the last 30 days...
-            </p>
+  <AboutMe />
 
-            {fetchError && (
-              <div class="win-error-box">
-                <p>⚠️ Error: Could not connect to GitHub API. Please try again later.</p>
+  <Window title="Active_Projects.exe" width="100%" id="projects-window">
+    <div class="portfolio-container">
+      <p class="status-text">
+        <strong>Status:</strong> Scanning repositories for commits made in the last 30 days...
+      </p>
+
+      {fetchError && (
+        <div class="win-error-box">
+          <p>⚠️ Error: Could not connect to GitHub API. Please try again later.</p>
+        </div>
+      )}
+
+      {!fetchError && activeProjects.length === 0 && (
+        <p style="margin: 20px 0; text-align: center;">
+          No active projects found with commits in the last month.
+        </p>
+      )}
+
+      {!fetchError && activeProjects.length > 0 && (
+        <div class="project-list edge-sunken">
+          {activeProjects.map((repo) => (
+            <div class="project-item">
+              <div class="project-header">
+                <span class="project-title">📁 {repo.name}</span>
+                <a href={repo.html_url} target="_blank" rel="noopener noreferrer" class="win-btn project-link">Open</a>
               </div>
-            )}
-
-            {!fetchError && activeProjects.length === 0 && (
-              <p style="margin: 20px 0; text-align: center;">
-                No active projects found with commits in the last month.
-              </p>
-            )}
-
-            {!fetchError && activeProjects.length > 0 && (
-              <div class="project-list edge-sunken">
-                {activeProjects.map((repo) => (
-                  <div class="project-item">
-                    <div class="project-header">
-                      <span class="project-title">📁 {repo.name}</span>
-                      <a href={repo.html_url} target="_blank" rel="noopener noreferrer" class="win-btn project-link">Open</a>
-                    </div>
-                    <p class="project-desc">{repo.description || 'No description provided.'}</p>
-                    <div class="project-meta">
-                      <span>Last Push: {new Date(repo.pushed_at).toLocaleDateString('en-GB')}</span>
-                      <span>⭐ {repo.stargazers_count}</span>
-                    </div>
-                  </div>
-                ))}
+              <p class="project-desc">{repo.description || 'No description provided.'}</p>
+              <div class="project-meta">
+                <span>Last Push: {new Date(repo.pushed_at).toLocaleDateString('en-GB')}</span>
+                <span>⭐ {repo.stargazers_count}</span>
               </div>
-            )}
-
-            <div style="text-align: right; margin-top: 10px;">
-              <button
-                class="win-btn"
-                onclick="document.getElementById('projects-window').style.display='none'"
-              >
-                Close
-              </button>
             </div>
-          </div>
-        </Window>
-      </section>
+          ))}
+        </div>
+      )}
 
+      <div style="text-align: right; margin-top: 10px;">
+        <button
+          class="win-btn"
+          onclick="document.getElementById('projects-window').style.display='none'"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </Window>
+</section>
       <aside class="sidebar">
         <InfoPanel title="Education.exe" id="education-window" entries={education} />
       </aside>

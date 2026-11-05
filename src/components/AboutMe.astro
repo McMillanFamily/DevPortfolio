@@ -1,0 +1,30 @@
+---
+// src/components/AboutMe.astro
+import Window from './Window.astro';
+
+const { id = 'about-window', width = '100%' } = Astro.props;
+---
+
+<Window title="MS-DOS Prompt" width={width} id={id}>
+  <div class="terminal-body edge-sunken">
+    <p class="term-line"><span class="term-prompt">C:\&gt;</span> whoami</p>
+    <p class="term-out">Lewis - developer based in Scotland</p>
+
+    <p class="term-line"><span class="term-prompt">C:\&gt;</span> type about.txt</p>
+    <p class="term-out">
+      I make things in Python, and I make well-made things for the web
+      (sometimes).
+    </p>
+
+    <p class="term-line"><span class="term-prompt">C:\&gt;</span> dir /skills</p>
+    <p class="term-out">Astro &nbsp; HTML &nbsp; Python &nbsp; Java &nbsp; PHP &nbsp; Laravel</p>
+    <p class="term-out">...and whatever else I'm learning this month.</p>
+
+    <p class="term-line"><span class="term-prompt">C:\&gt;</span> start Active_Projects.exe</p>
+    <p class="term-out">See what I'm working on below, or get in touch via GitHub.</p>
+
+    <p class="term-line">
+      <span class="term-prompt">C:\&gt;</span><span class="term-cursor">_</span>
+    </p>
+  </div>
+</Window>
