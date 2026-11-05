@@ -1,0 +1,27 @@
+---
+// src/components/Window.astro
+interface Props {
+  title: string;
+  width?: string; // Optional custom width (e.g., "400px")
+  id?: string;    // Optional unique ID for targeting with JavaScript
+}
+
+const { title, width = "400px", id } = Astro.props;
+---
+
+<div class="win-window" id={id} style={`width: ${width};`}>
+  <!-- Title Bar -->
+  <div class="win-titlebar">
+    <span>{title}</span>
+    <div class="win-titlebar-controls">
+      <button class="win-btn win-minimize-btn" aria-label="Minimize">_</button>
+      <button class="win-btn win-maximize-btn" aria-label="Maximize">⌗</button>
+      <button class="win-btn win-close-btn" aria-label="Close" onclick={id ? `document.getElementById('${id}').style.display='none'` : undefined}>X</button>
+    </div>
+  </div>
+  
+  <!-- Content Area -->
+  <div class="win-content">
+    <slot /> <!-- This is where your custom page content goes! -->
+  </div>
+</div>
