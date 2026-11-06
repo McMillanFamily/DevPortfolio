@@ -243,3 +243,29 @@ body {
 @keyframes blink {
   50% { opacity: 0; }
 }
+
+.clock-body {
+  background-color: var(--win-black);
+  padding: 12px;
+  text-align: center;
+  font-family: "Courier New", monospace;
+}
+
+.clock-time {
+  color: #00ff00;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.clock-date {
+  color: var(--win-bg);
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

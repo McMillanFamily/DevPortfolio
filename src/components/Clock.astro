@@ -1,0 +1,36 @@
+---
+import { astro } from "astro/fetch";
+import Window from "./Window.astro";
+
+const { id = 'clock-window', width = '100%' } = Astro.props;
+---
+
+<Window title="Clock.exe" width="width" id={id}>
+    <div class="clock-body edge-sunken">
+        <div class="clock-time" id="clock-time">--:--:--</div>
+        <div class="clock-date" id="clock-date">Loading...</div>
+    </div>
+</Window>
+
+<script>
+const timeEl = document.getElementById('clock-time');
+const dateEl = document.getElementById('clock-date');
+
+function tick(){
+    const now = new Date();
+    if (timeEl) timeEl.textContent = now.toLocaleTimeString('en-GB');
+    if (dateEl){
+        dateEl.textContent = now.toLocaleDateString('en-GB',{
+            weekday: 'long',
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+        }
+
+        );
+    }
+
+}
+tick();
+setInterval(tick,1000);
+</script>
